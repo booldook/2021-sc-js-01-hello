@@ -1,0 +1,47 @@
+<script>
+// 함수선언: 함수선언문 - Hoisting대상이므로 위로 끌어올려진다.
+function fn() {
+	console.log('FN!!!');
+}
+
+
+// 함수선언: 함수표현식 - 위로 끌어올려지지 않는다.
+var fn2 = function() {
+	console.log('FN2!!!');
+}
+
+fn();
+fn2();
+
+// 객체(Object)
+var man = {
+	name: '홍길동',
+	age: 25,
+	height: 170,
+	weight: 70,
+	run: function() {
+		console.log(this.name, '뜁니다.');
+	},
+	sleep: function() {
+		console.log(this.name, '잡니다.');
+	},
+	eat: function() {
+		console.log(this.name, '먹습니다.');
+	},
+	bag: {
+		food: '옥수수',
+		money: 10,
+		weapon: 'knife'
+	},
+	attack: function() {
+		console.log(this.name, this.bag.weapon, "공격");
+	}
+}
+
+man.run();
+man.attack();
+console.log(man.name, man.age, man.height);
+
+console.log(window);
+console.log(man);
+</script>
