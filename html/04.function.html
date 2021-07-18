@@ -5,10 +5,41 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>함수</title>
+	<style>
+		.box {width: 200px; height: 200px; background-color: aquamarine;}
+	</style>
+	<script src="../js/jquery.min.js"></script>
 </head>
 <body>
 	<button onclick="document.body.style.backgroundColor='red';">배경</button>
 	<button onclick="this.style.transform='translate(100px, 100px)';">움직여</button>
-	
+	<button id="bt2">배경2</button>
+	<button id="bt3">배경3</button>
+	<button id="btHide">사라져</button>
+	<button id="btShow">나타나</button>
+	<div class="box"></div>
+
+
+	<script>
+		// Vanilla Script
+		document.getElementById('bt2').addEventListener('click', function() {
+			var color = prompt('배경색을 입력하세요');
+			document.body.style.backgroundColor = color;
+		})
+
+		// jQuery
+		$('#bt3').click(function() {
+			var color = prompt('배경색을 입력하세요');
+			$('body').css('background-color', color);
+		})
+
+		$('#btHide').click(function() {
+			$('.box').hide();
+		})
+
+		$('#btShow').click(function() {
+			$('.box').show();
+		})
+	</script>
 </body>
 </html>
