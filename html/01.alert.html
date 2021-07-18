@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alert/Confirm</title>
+	<style>
+		/* 여기는 CSS영역 */
+		button {
+			background-color: beige; 
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<button style="" onclick="window.alert('Hello World!');">경고창</button>
+	<button onclick="window.confirm('이 창을 닫으시겠습니까?');">확인창</button>
+	<button onclick="window.prompt('당신의 이름을 입력하세요.');">입력창</button>
+	<button onclick="window.close();">닫기</button>
+	<button onclick="window.open('https://naver.com');">네이버</button>
+	<button onclick="this.innerHTML='바꿔줘';">지워줘</button>
+	<button onclick="alert('A'); confirm('B'); window.close();">많은 할일</button>
+	<button id="btMany">많은 할일2</button>
+
+	<script>
+		// 여기는 JS영역
+		// console.log(window);
+		// document.querySelector('#btMany')
+		document.getElementById('btMany').addEventListener('click', function() {
+			alert('힘들게 경고창');
+			confirm('힘들게 확인창');
+		})
+		</script>
+</body>
+</html>
