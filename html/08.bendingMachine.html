@@ -23,13 +23,31 @@
 				<option value="1000">1000원</option>
 			</select>
 			<button class="btn btn-danger">주문하기</button>
+			<button type="reset" class="btn btn-secondary">초기화</button>
 		</form>
 	</div>
 	<script>
 	function onOrder(f) {
-		console.log(f);
-		console.log(f.good.value);
-		console.log(f.money.value);
+		var good = f.good.value;
+		var money = f.money.value;
+		if(good === '') {
+			alert('상품을 선택하세요.');
+		}
+		else if(money === '') {
+			alert('동전을 넣어주세요.');
+		}
+		else if(money == 100) {
+			alert('동전이 부족합니다. 500원 이상 넣어주세요.')
+		}
+		// else if(money == 500 || money == 1000) { alert('') }
+		else {
+			if(money == 500) {
+				alert('당신은 '+good+'를 주문하셨습니다.\n지불하신 금액은 '+money+'원 입니다. 거스름돈은 0원 입니다.');
+			}
+			else {
+				alert('당신은 '+good+'를 주문하셨습니다.\n지불하신 금액은 '+money+'원 입니다. 거스름돈은 500원 입니다.');
+			}
+		}
 		return false;
 	}
 	</script>
