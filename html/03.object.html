@@ -1,5 +1,6 @@
 <script>
 // 함수선언: 함수선언문 - Hoisting대상이므로 위로 끌어올려진다.
+fn();
 function fn() {
 	console.log('FN!!!');
 }
@@ -10,7 +11,6 @@ var fn2 = function() {
 	console.log('FN2!!!');
 }
 
-fn();
 fn2();
 
 // 객체(Object)
