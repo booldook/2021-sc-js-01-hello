@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container border border-primary p-5">
-		<form action="#">
+		<form action="#" onsubmit="return onOrder(this);">
 			<input type="radio" name="good" id="cola" value="콜라">
 			<label for="cola">콜라</label>
 			<input type="radio" name="good" id="soda" value="사이다">
@@ -26,7 +26,12 @@
 		</form>
 	</div>
 	<script>
-
+	function onOrder(f) {
+		console.log(f);
+		console.log(f.good.value);
+		console.log(f.money.value);
+		return false;
+	}
 	</script>
 </body>
 </html>
