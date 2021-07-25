@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>this</title>
+</head>
+<body>
+	<form onclick="onSend(this);" onsubmit="return false;">
+		<button onclick="onSend(this);">눌러봐</button>
+	</form>
+	<div onclick="onSend(this);">가나다라</div>	
+
+	<script>
+		function onSend(el) {
+			console.log(el);
+		}
+	</script>
+</body>
+</html>
