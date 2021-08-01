@@ -97,3 +97,20 @@ var prds = [
 	}, 
 ]
 
+console.log(prds);
+
+function init() {
+	for(var i=0; i<prds.length; i++) {
+		var html = '';
+		html += '<li class="prd">';
+		html += '<div class="img-wp">';
+		html += '<img src="'+prds[i].src+'" alt="상품" class="w-100">';
+		html += '</div>';
+		html += '<h2 class="title">'+prds[i].title+'</h2>';
+		html += '<p class="content">'+prds[i].content+'</p>';
+		html += '<h3 class="price">$'+prds[i].price+'</h3>';
+		html += '</li>';
+		document.getElementById('prdWrap').innerHTML += html;
+	}
+}
+init();

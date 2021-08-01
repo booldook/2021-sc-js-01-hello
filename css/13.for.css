@@ -1,6 +1,6 @@
 ul {list-style: none; margin: 0; padding: 0;}
 .prd-wrapper {max-width: 1200px; margin: auto;}
-.prd-wrap {display: flex;}
+.prd-wrap {display: flex; flex-wrap: wrap;}
 .prd {width: 25%; padding: 1%; border-bottom: 2px solid #ccc;}
 .prd .title {line-height: 1.5; margin-top: .5em;}
 .prd .content {line-height: 1.15;}
