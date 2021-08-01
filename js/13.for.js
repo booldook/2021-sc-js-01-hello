@@ -100,9 +100,8 @@ var prds = [
 console.log(prds);
 
 function init() {
-	for(var i=0; i<prds.length; i++) {
-		var html = '';
-		html += '<li class="prd">';
+	for(var i=0, html=''; i<prds.length; i++) {
+		html  = '<li class="prd">';
 		html += '<div class="img-wp">';
 		html += '<img src="'+prds[i].src+'" onclick="openModal(this);" alt="상품" class="w-100">';
 		html += '</div>';
