@@ -11,6 +11,7 @@
 		.date {font-size: 40px;}
 		.time {font-size: 150px; line-height: 1;}
 	</style>
+	<script src="../js/moment.min.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -20,15 +21,13 @@
 		</div>
 	</div>
 	<script>
-		
+		var date = document.getElementsByClassName('date')[0];
+		var time = document.getElementsByClassName('time')[0];
 
-
-		
-		
-		
-		
-		
-
+		setInterval(function(){
+			date.innerHTML = moment().format('YYYY-MM-DD. dddd');
+			time.innerHTML = moment().format('HH:mm:ss');
+		}, 1000);
 	</script>
 </body>
 </html>
