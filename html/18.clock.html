@@ -21,8 +21,11 @@
 		</div>
 	</div>
 	<script>
+
 		var date = document.getElementsByClassName('date')[0];
 		var time = document.getElementsByClassName('time')[0];
+
+		// date.innerHTML = '<h1>Hello</h1>';
 
 		setInterval(function(){
 			date.innerHTML = moment().format('YYYY-MM-DD. dddd');
