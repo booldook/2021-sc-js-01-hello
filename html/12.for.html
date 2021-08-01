@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>box 만들기</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<style>
+		.box {width: 30px; height: 30px; margin: 2px; background-color: red; transition: all 0.5s;}
+		.box:hover {opacity: 0;}
+	</style>
+</head>
+<body>
+	<div id="stage" class="container border border-danger p-5 d-flex flex-wrap">
+		
+	</div>
+	<script>
+		// 0부터 255까지의 랜덤한 수를 추출하시오.
+		// var color = Math.floor(Math.random() * 256);
+
+		// 문자열 더하기
+		var name = "booldook";
+		var str = "당신의 닉네임은 "+name+"입니다.";
+		var html = '<h1 class="title '+name+'">'+name+'</h1>'; // <h1 class="title booldook">booldook</h1>
+		var stage = document.getElementById("stage");
+		var r, g, b, style; // background-color: rgb(200, 16, 27);
+		for(var i=0; i<500; i++) {
+			r = Math.floor(Math.random() * 256);
+			g = Math.floor(Math.random() * 256);
+			b = Math.floor(Math.random() * 256);
+			style = "";
+			stage.innerHTML += '<div class="box" style="background-color: rgb('+r+', '+g+', '+b+');"></div>';
+		}
+	</script>
+</body>
+</html>
