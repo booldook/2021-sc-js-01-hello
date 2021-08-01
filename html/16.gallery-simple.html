@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gallery</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<style>
+		ul, li {margin: 0; padding: 0; list-style: none;}
+		.gallery-wrapper {max-width: 600px; margin: 50px auto;}
+		.stage {height: 500px; border: 1px solid #ccc; display: flex; justify-content: center; align-items: center; margin-bottom: 10px;}
+		.list-wrap {display: flex; justify-content: center;}
+		.list-wrap .list {max-width: 60px; margin: 0 4px; border: 1px solid #ccc; cursor: pointer;}
+		.list-wrap .list.active {border: 1px solid red;}
+	</style>
+	<script src="../js/jquery.min.js"></script>
+</head>
+<body>
+	<div class="gallery-wrapper">
+		<div class="stage">
+			<img src="../img/p1.jpg" alt="큰이미지" class="mw-100 big-img">
+		</div>
+		<ul class="list-wrap">
+			<!-- li.list*12>img.mw-100[src=../img/p$.jpg alt=thumb$] -->
+			<li class="list active"><img src="../img/p1.jpg" alt="thumb1" class="mw-100"></li>
+			<li class="list"><img src="../img/p2.jpg" alt="thumb2" class="mw-100"></li>
+			<li class="list"><img src="../img/p3.jpg" alt="thumb3" class="mw-100"></li>
+			<li class="list"><img src="../img/p4.jpg" alt="thumb4" class="mw-100"></li>
+			<li class="list"><img src="../img/p5.jpg" alt="thumb5" class="mw-100"></li>
+			<li class="list"><img src="../img/p6.jpg" alt="thumb6" class="mw-100"></li>
+			<li class="list"><img src="../img/p7.jpg" alt="thumb7" class="mw-100"></li>
+			<li class="list"><img src="../img/p8.jpg" alt="thumb8" class="mw-100"></li>
+			<li class="list"><img src="../img/p9.jpg" alt="thumb9" class="mw-100"></li>
+			<li class="list"><img src="../img/p10.jpg" alt="thumb10" class="mw-100"></li>
+			<li class="list"><img src="../img/p11.jpg" alt="thumb11" class="mw-100"></li>
+			<li class="list"><img src="../img/p12.jpg" alt="thumb12" class="mw-100"></li>
+		</ul>
+	</div>
+	<script>
+		// console.log( document );
+		// console.log( $($(document)[0])[0] );
+	
+		$('.list').click(function() {
+			// console.log( $(this).find('img')[0].src );
+			// console.log( $(this).find('img').attr('src') );
+			$('.list').removeClass('active');
+			$(this).addClass('active');
+			$('.big-img').attr('src', $(this).find('img').attr('src'));
+		})
+		
+
+		/*
+		$('.list').on('click', function(){
+
+		})
+
+		for(var i=0; i<document.getElementsByClassName('list').length; i++) {
+			document.getElementsByClassName('list')[i].addEventListener('click', function() {
+
+			});
+		}
+		*/
+
+
+		for(var i=0; i<document.getElementsByClassName('list').length; i++) {
+			document.getElementsByClassName('list')[i].addEventListener('click', function() {
+				for(var j=0; j<document.getElementsByClassName('list').length; j++) {
+					document.getElementsByClassName('list')[j].classList.remove('active');
+				}
+				this.classList.add('active');
+				document.getElementsByClassName('big-img')[0].src = this.getElementsByTagName('img')[0].src;
+			})
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clock</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<style>
+		.wrapper {width: 100%; height: 100vh; background-image: url(../img/bg.jpg); background-position: center; background-size: cover; display: flex; justify-content: center; align-items: center; color: #fff;}
+		.date {font-size: 40px;}
+		.time {font-size: 150px; line-height: 1;}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="date-wrap">
+			<div class="date"></div>
+			<div class="time"></div>
+		</div>
+	</div>
+	<script>
+		/*
+		var d = new Date();
+		console.log( d.getFullYear() );
+		console.log( d.getMonth() + 1 ); // 0 ~ 11
+		console.log( d.getDate() );
+		console.log( d.getDay() );	// 0(Sunday) ~ 6(Saturday)
+		console.log( d.getHours() );
+		console.log( d.getMinutes() );
+		console.log( d.getSeconds() );
+		*/
+
+		function zp(n) {
+			return n < 10 ? '0'+n : n;
+			// if(n < 10) { return '0'+n; }
+			// else { return n; }
+		}
+		// console.log( zp(10) );
+
+		var yoil = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+		var date = document.getElementsByClassName('date')[0];
+		var time = document.getElementsByClassName('time')[0];
+		
+		setInterval(function() {
+			var d = new Date();
+			var dateTxt = d.getFullYear()+'-'+zp(d.getMonth()+1)+'-'+zp(d.getDate())+'. '+yoil[d.getDay()];
+			var timeTxt = zp(d.getHours())+':'+zp(d.getMinutes())+':'+zp(d.getSeconds());
+			date.innerHTML = dateTxt;
+			time.innerHTML = timeTxt;
+		}, 1000);
+
+
+		
+		
+		
+		
+		
+
+	</script>
+</body>
+</html>

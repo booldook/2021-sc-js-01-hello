@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gallery</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<style>
+		ul, li {margin: 0; padding: 0; list-style: none;}
+		.gallery-wrapper {max-width: 600px; margin: 50px auto;}
+		.stage {height: 500px; border: 1px solid #ccc; display: flex; justify-content: center; align-items: center; margin-bottom: 10px;}
+		.list-wrap {display: flex; justify-content: center;}
+		.list-wrap .list {max-width: 60px; margin: 0 4px; border: 1px solid #ccc; cursor: pointer;}
+		.list-wrap .list.active {border: 1px solid blue;}
+	</style>
+	<script src="../js/jquery.min.js"></script>
+</head>
+<body>
+	<div class="gallery-wrapper">
+		<div class="stage">
+			<img src="../img/p1.jpg" alt="큰이미지" class="mw-100 bigImage" id="bigImage">
+		</div>
+		<ul class="list-wrap">
+			
+		</ul>
+	</div>
+	<script>
+		var imgs = ['p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg', 'p6.jpg', 'p7.jpg', 'p8.jpg', 'p9.jpg', 'p10.jpg', 'p11.jpg', 'p12.jpg'];
+		for(var i=0, html=''; i<imgs.length; i++) {
+			html += '<li class="list"><img src="../img/'+imgs[i]+'" onclick="showImg('+i+');" class="mw-100"></li>';
+		}
+		$(".list-wrap").html(html);
+
+		function showImg(n) {
+			$('.list').removeClass('active');
+			$('.list').eq(n).addClass('active');
+			$('.bigImage').attr('src', '../img/'+imgs[n]);
+		}
+		/*
+		for(var i=0, html=''; i<imgs.length; i++) {
+			html += '<li class="list"><img src="../img/'+imgs[i]+'" onclick="showImg('+i+');" class="mw-100"></li>';
+		}
+		document.getElementById('listWrap').innerHTML = html;
+
+		function showImg(n) {
+			var lists = document.getElementsByClassName('list');
+			for(var i=0; i<lists.length; i++) {
+				lists[i].classList.remove('active');
+			}
+			lists[n].classList.add('active');
+			document.getElementById('bigImage').src = '../img/' + imgs[n];
+		}
+		*/
+	</script>
+</body>
+</html>
