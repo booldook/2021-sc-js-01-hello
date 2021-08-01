@@ -1,0 +1,37 @@
+<script>
+	// 증감연산자 ++ -- : 후위연산자, 전위연산자
+	var i = 1;
+	i = i + 1; // 2
+	i++; // 2 값을 반영한 후 더한다
+	// 3
+	++i; // 4 일단 더하는게 먼저, 그 후에 값을 반영한다.
+
+	// i = i - 1; // i--, --i;
+	console.log(i);
+
+	var j = 1;
+	// j = j + 10; // j += 10;
+	// j = j - 10; // j -= 10; 
+	console.log(j += 10);
+	console.log("==================");
+
+	// console.log(document.body.innerHTML);
+	// document.body.innerHTML = '<h1>AB</h1>';
+
+	// for(초기값?; 조건; 증가값?) { 반복할 내용 }
+	for(var i=1; i<=10; i=i+1) {
+		console.log(i);
+	}
+	
+	var i = 1;
+	for(; i<=10;) {
+		console.log(i);
+		i = i + 1;
+	}
+
+	var i = 1;
+	while(i<=10) {
+		console.log(i);
+		i = i + 1;
+	}
+</script>
