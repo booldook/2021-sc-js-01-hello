@@ -104,7 +104,7 @@ function init() {
 		var html = '';
 		html += '<li class="prd">';
 		html += '<div class="img-wp">';
-		html += '<img src="'+prds[i].src+'" alt="상품" class="w-100" onclick="openModal();">';
+		html += '<img src="'+prds[i].src+'" onclick="openModal(this);" alt="상품" class="w-100">';
 		html += '</div>';
 		html += '<h2 class="title">'+prds[i].title+'</h2>';
 		html += '<p class="content">'+prds[i].content+'</p>';
@@ -119,6 +119,8 @@ function closeModal() {
 	document.getElementById('modalWrapper').style.display = 'none';
 }
 
-function openModal() {
+function openModal(el) {
+	console.log(el.src);
+	document.getElementById('bigImage').src = el.src;
 	document.getElementById('modalWrapper').style.display = 'flex';
 }
