@@ -26,7 +26,7 @@ arr.forEach(function(v, i) {
 console.clear();
 */
 
-
+/****************** Global *********************/
 var lists = [
 	{ name: 'Good Product01', src: '../img/p1.jpg' },
 	{ name: 'Good Product02', src: '../img/p2.jpg' },
@@ -38,9 +38,11 @@ var lists = [
 	{ name: 'Good Product08', src: '../img/p8.jpg' },
 ];
 
-var html = '';
+var rnd;
+
+/****************** Init *********************/
 for(var i in lists) {
-	html = '<li class="thumb"><img src="'+lists[i].src+'" class="w100"></li>'; 
+	var html = '<li class="thumb"><img src="'+lists[i].src+'" alt="'+lists[i].name+'" class="w100"></li>'; 
 	// document.querySelector('.thumb-wrap').innerHTML += html;
 	// console.log( $('.thumb-wrap').append(html) );
 	// console.log( $(html).appendTo('.thumb-wrap') );
@@ -48,7 +50,30 @@ for(var i in lists) {
 	$(html).appendTo('.thumb-wrap').click(onThumbClick);
 }
 // $('.thumb').click(function() { console.log(this) })
+rnd = Math.floor(Math.random() * lists.length);
 
+
+/****************** Event Callback *********************/
 function onThumbClick() {
-	$('.img-wrap img').attr('src', $(this).find('img').attr('src'));
+	var src = $(this).find('img').attr('src');
+	var name = $(this).find('img').attr('alt');
+	$('.wrapper .img-wrap img').attr('src', src);
+	$('.wrapper .img-wrap .title').html(name);
 }
+
+function onImgClick() {
+	var src = $(this).attr('src');
+	$('.modal-wrapper').show();
+	$('.modal-wrapper img').attr('src', src);
+}
+
+function onCloseClick() {
+	$('.modal-wrapper').hide();
+}
+
+
+/****************** Event Init *********************/
+$('.thumb').eq(rnd).trigger('click');
+$('.wrapper .img-wrap img').click(onImgClick);
+$('.modal-wrapper .bt-close').click(onCloseClick);
+
