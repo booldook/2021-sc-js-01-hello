@@ -1,3 +1,43 @@
+// https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk?hl=ko&
+// http://asq.kr/xc4QQe
+
+/** 
+ * ! 다중 for문
+*/
+
+/*
+var i = 0;
+
+function a() {
+	var i = 1;
+	console.log(i);
+}
+console.log(i);
+a();
+*/
+
+for(var i=2; i<=9; i++) {
+	for(var j=1; j<=9; j++) {
+		console.log(i + ' * ' + j + ' = ' + i * j);
+	}
+}
+
+
+
+
+/**
+ * ! onclick으로 실행 
+ */
+function showImg(el) {
+	// document.querySelector('.img-wrap img').src = el.src;
+	// document.getElementsByClassName('img-wrap')[0].getElementsByTagName('img')[0].src = el.src;
+	// $('.img-wrap img').attr('src', el.src);
+	// $('.img-wrap img').attr('src', $(el).attr('src'));
+	// $('.img-wrap').find('img').attr('src', $(el).attr('src'));
+}
+
+
+
 /**
  * ! 순수 자바스크립트로 갤러리 
  */
