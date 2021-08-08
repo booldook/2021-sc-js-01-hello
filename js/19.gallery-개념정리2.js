@@ -53,4 +53,13 @@ document.querySelectorAll('.thumb')[1].id = 'thumb1';
 *	? document.querySelector('.wrapper img').style.border = '1px solid red';
 *	? $('.wrapper').css('border');
 *	? $('.wrapper').css('border', '1px solid green');
+*
+* ! 4. DOM 수정, 삭제, 추가
+* ? document.querySelector('.wrapper').innerHTML;
+* ? document.querySelector('.wrapper').innerHTML = '<div>A</div>';
+* ? document.querySelector('.wrapper').innerHTML += '<div>A</div>';
+* ? document.querySelector('.wrapper').innerHTML = document.querySelector('.wrapper').innerHTML + '<div>A</div>';
+* ? $('.wrapper').html(); // 58번라인
+* ? $('.wrapper').html('<div>A</div>'); // 59번라인
+* ? $('.wrapper').append('<div>A</div>'); // 60번라인
 */
