@@ -1,6 +1,8 @@
 body {height: 100vh; display: flex; align-items: center; justify-content: center;}
 .wrapper {width: 400px; margin: auto;}
-.wrapper .img-wrap {border: 1px solid #ddd; padding: 8px; border-radius: 4px; margin-bottom: 12px;}
+.wrapper .img-wrap {border: 1px solid #ddd; padding: 8px; border-radius: 4px; margin-bottom: 12px; position: relative;}
+.wrapper .img-wrap h2.title {position: absolute; bottom: 8px; left: 8px; background-color: rgba(0, 0, 0, .6); color: #fff; width: calc(100% - 16px); font-size: 24px; text-align: center; padding: 18px;}
+
 .thumb-wrap {display: flex; justify-content: center;}
 .thumb-wrap .thumb {width: 80px; margin: 0 2px; border: 1px solid #ddd;}
 

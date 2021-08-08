@@ -44,5 +44,11 @@ for(var i in lists) {
 	// document.querySelector('.thumb-wrap').innerHTML += html;
 	// console.log( $('.thumb-wrap').append(html) );
 	// console.log( $(html).appendTo('.thumb-wrap') );
-	$(html).appendTo('.thumb-wrap');
+	// $('.thumb-wrap').append(html);
+	$(html).appendTo('.thumb-wrap').click(onThumbClick);
+}
+// $('.thumb').click(function() { console.log(this) })
+
+function onThumbClick() {
+	$('.img-wrap img').attr('src', $(this).find('img').attr('src'));
 }
