@@ -1,0 +1,5 @@
+body {height: 100vh; display: flex; align-items: center; justify-content: center;}
+.wrapper {width: 600px; margin: auto;}
+.img-wrap {border: 1px solid #ddd; padding: 8px; border-radius: 4px; margin-bottom: 12px;}
+.thumb-wrap {display: flex; justify-content: center;}
+.thumb-wrap .thumb {width: 80px; margin: 0 2px;}
