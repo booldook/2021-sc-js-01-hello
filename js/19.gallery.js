@@ -19,7 +19,7 @@
 
 // console.log($('#wrapper'));
 
-$('#wrapper')[0].style.border = '10px solid red';
+// $('#wrapper')[0].style.border = '10px solid red';
 
 /*
 $('#wrapper').addClass()
@@ -30,3 +30,8 @@ $('#wrapper').show()
 $('#wrapper').hide()
 $('#wrapper').css()
 */
+
+console.log( document.getElementsByClassName('wrapper')[0].getElementsByClassName('thumb-wrap')[0].getElementsByClassName('thumb')[1] );
+console.log( $('.wrapper .thumb-wrap .thumb').eq(1) );
+console.log( $('.wrapper').find('.thumb-wrap').find('.thumb').eq(1) );
+console.log( $('.wrapper').find('.thumb').eq(1) );
