@@ -12,13 +12,16 @@ var $pager = $wrapper.find('.pager');
 var depth = 1;											// z-index
 var idx = 0;												// 대상slide idx
 var interval;												// interval 저장
-var gap = 3000;											// interval 간격
+var gap = 2000;											// interval 간격
+var speed = 500;										// animation 속도
 var lastIdx = $slide.length - 1;		// 마지막 .slide의 index
 
 /************* function init ************/
 function chgSlide() {
-	$slide.eq(idx).css('opacity', 0);
-	$slide.eq(idx).css('z-index', depth + 1);
+	// $slide.eq(idx).css('opacity', 0);
+	// $slide.eq(idx).css('z-index', ++depth);
+	$slide.eq(idx).css({'opacity': 0, 'z-index': ++depth});
+	$slide.eq(idx).stop().animate({"opacity": 1}, speed);
 }
 
 function chgPager() {
