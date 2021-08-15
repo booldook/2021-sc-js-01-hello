@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>$().animate()</title>
+	<link rel="stylesheet" href="../css/all.min.css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/base.css">
+	<script src="../js/jquery.min.js"></script>
+	<style>
+		body {padding: 50px;}
+		.box {width: 100px; height: 100px; background-color: red; position: absolute; top: 100px; left: 50px; border: 8px solid orange; padding: 10px; margin: 12px;}
+	</style>
+</head>
+<body>
+	<button class="btn btn-primary bt-play">움직여</button>
+	<button class="btn btn-primary bt-reset">원위치</button>
+	<div class="box"></div>
+	<script>
+		console.log(  $('.box').width()  					);	// content (64)
+		console.log(  $('.box').innerWidth() 			);	// content + padding (84)
+		console.log(  $('.box').outerWidth()  		);	// content + padding + border (100)
+		console.log(  $('.box').outerWidth(true)  );	// content + padding + border + margin (124)
+	</script>
+</body>
+</html>
