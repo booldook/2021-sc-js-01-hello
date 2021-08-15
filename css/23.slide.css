@@ -1,4 +1,4 @@
-.wrapper {max-width: 720px; margin: 50px auto; position: relative;}
+.wrapper {max-width: 720px; margin: 50px auto; position: relative; border-top: 10px solid red; border-bottom: 10px solid red;}
 .wrapper .bt-direction {position: absolute; color: #fff; font-size: 120px; top: 50%; transform: translateY(-50%); opacity: .3; text-shadow: 0 0 1vw rgba(0, 0, 0, .5); cursor: pointer; transition: all .5s; user-select: none; z-index: 2;}
 .wrapper .bt-direction:hover {opacity: 1;}
 .wrapper .bt-prev {left: 0;}
@@ -7,8 +7,8 @@
 .wrapper .pager-wrap .pager {font-size: 40px; cursor: pointer; color: #fff; text-shadow: 0 0 1vw rgba(0, 0, 0, .5); user-select: none;}
 .wrapper .pager-wrap .pager.active {color: #f20;}
 
-.wrapper .slide-wrap {position: relative; z-index: 1;}
-.wrapper .slide {position: absolute;}
+.wrapper .slide-wrap {position: relative; z-index: 1; display: flex;}
+.wrapper .slide {}
 
 @media screen and (max-width: 720px) {
 	.wrapper .bt-direction {font-size: 12vw;}
