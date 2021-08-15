@@ -27,16 +27,26 @@
 		console.log(  JSON.parse(hong2)  		);	// js object
 
 
-
-		//$().aniamte(css값(json), 속도ms, 물리엔진("swing", "linear"), 끝난 뒤 실행할 함수);
+		// https://www.w3schools.com/jquery/eff_animate.asp
+		//$().aniamte(css값(json), [속도ms(400), 물리엔진("swing", "linear"), 끝난 뒤 실행할 함수]);
 		$('.bt-play').click(onPlay);
 		function onPlay() {
-			$('.box').stop().animate()
+			var tarX = $('body').outerWidth() - $('.box').offset().left - $('.box').outerWidth();
+			var tarY = window.innerHeight - $('.box').offset().top - $('.box').outerHeight();
+			$('.box').stop().animate({"left": tarX+"px"}, 2000, function() {
+				$(this).stop().animate({"top": tarY+"px"}, 2000, function() {
+					$(this).stop().animate({"left": "50px"}, 2000, function() {
+						$(this).stop().animate({"top": "100px"}, 2000);
+					});
+				});
+			});
 		}
 
 
 
-		/* console.log(  $('.box').width()  					);	// content (64)
+		/* 
+		outerWidth == css (box-sizing: border-box) 
+		console.log(  $('.box').width()  					);	// content (64)
 		console.log(  $('.box').innerWidth() 			);	// content + padding (84)
 		console.log(  $('.box').outerWidth()  		);	// content + padding + border (100)
 		console.log(  $('.box').outerWidth(true)  );	// content + padding + border + margin (124)
@@ -45,7 +55,14 @@
 		console.log(  $('.box').outerHeight()  		);	// content + padding + border (100)
 		console.log(  $('.box').outerHeight(true) );	// content + padding + border + margin (124)
 		console.log(  $('.box').offset().left );
-		console.log(  $('.box').offset().top ); */
+		console.log(  $('.box').offset().top );
+
+		console.log(window.screen.width);
+		console.log(window.screen.height);
+		console.log(window.innerWidth);
+		console.log(window.innerHeight);
+		console.log(document.querySelector('.box'));
+		*/
 	</script>
 </body>
 </html>
