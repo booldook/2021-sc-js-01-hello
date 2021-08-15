@@ -19,10 +19,33 @@
 	<button class="btn btn-primary bt-reset">원위치</button>
 	<div class="box"></div>
 	<script>
-		console.log(  $('.box').width()  					);	// content (64)
+		// xml(eXtension Markup Language), json(JavaScript Object Notation)
+		var hong = {fname: "길동", lname: "홍"}; // js object
+		var hong2 = '{"fname": "길동", "lname": "홍"}'; // json
+		console.log(  hong  								);	// js object
+		console.log(  JSON.stringify(hong)  ); 	// json
+		console.log(  JSON.parse(hong2)  		);	// js object
+
+
+
+		//$().aniamte(css값(json), 속도ms, 물리엔진("swing", "linear"), 끝난 뒤 실행할 함수);
+		$('.bt-play').click(onPlay);
+		function onPlay() {
+			$('.box').stop().animate()
+		}
+
+
+
+		/* console.log(  $('.box').width()  					);	// content (64)
 		console.log(  $('.box').innerWidth() 			);	// content + padding (84)
 		console.log(  $('.box').outerWidth()  		);	// content + padding + border (100)
 		console.log(  $('.box').outerWidth(true)  );	// content + padding + border + margin (124)
+		console.log(  $('.box').height()  				);	// content (64)
+		console.log(  $('.box').innerHeight() 		);	// content + padding (84)
+		console.log(  $('.box').outerHeight()  		);	// content + padding + border (100)
+		console.log(  $('.box').outerHeight(true) );	// content + padding + border + margin (124)
+		console.log(  $('.box').offset().left );
+		console.log(  $('.box').offset().top ); */
 	</script>
 </body>
 </html>

@@ -19,7 +19,6 @@ var lastIdx = $slide.length - 1;		// 마지막 .slide의 index
 function chgSlide() {
 	$slide.eq(idx).css('opacity', 0);
 	$slide.eq(idx).css('z-index', depth + 1);
-	$slide.eq(idx).stop().aniamte(css값, 속도, 물리엔진, 애니메이션이 끝난 뒤 실행할 함수);
 }
 
 function chgPager() {
