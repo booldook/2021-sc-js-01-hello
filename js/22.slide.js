@@ -13,7 +13,7 @@ var depth = 1;											// z-index
 var idx = 0;												// 대상slide idx
 var interval;												// interval 저장
 var gap = 2000;											// interval 간격
-var speed = 500;										// animation 속도
+var speed = 1000;										// animation 속도
 var lastIdx = $slide.length - 1;		// 마지막 .slide의 index
 
 /************* function init ************/
@@ -25,7 +25,8 @@ function chgSlide() {
 }
 
 function chgPager() {
-
+	$pager.removeClass('active');
+	$pager.eq(idx).addClass('active');
 }
 
 /************* event callback ***********/
@@ -35,8 +36,33 @@ function onNext() {
 	chgPager();
 }
 
+function onPrev() {
+	idx = (idx === 0) ? lastIdx: idx - 1;
+	chgSlide();
+	chgPager();
+}
+
+function onPager() {
+	idx = $(this).index();
+	chgSlide();
+	chgPager();
+}
+
+function onEnter() {
+	clearInterval(interval);
+}
+
+function onLeave() {
+	interval = setInterval(onNext, gap);
+}
+
 /*************** event init *************/
 interval = setInterval(onNext, gap);
+$wrapper.mouseenter(onEnter);
+$wrapper.mouseleave(onLeave);
+$btPrev.click(onPrev);
+$btNext.click(onNext);
+$pager.click(onPager);
 
 /*************** start init *************/
 $('.fade-type .slide').eq(0).css('z-index', depth);
