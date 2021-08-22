@@ -14,15 +14,16 @@ var slides = [
 ];
 var $wrapper = $('.hori-type');
 var $wrap = $wrapper.find('.slide-wrap');
-var $slide;
+var $slide;	// 생성된 .slide를 담을 변수
+var $pager; // 생성된 .pager를 담을 변수
 var $btPrev = $wrapper.find('.bt-prev');
 var $btNext = $wrapper.find('.bt-next');
 var $pagerWrap = $wrapper.find('.pager-wrap');
-var idx = 0;												// 대상slide idx
-var interval;												// interval 저장
-var gap = 2000;											// interval 간격
-var speed = 500;										// animation 속도
-var lastIdx;												// 마지막 .slide의 index
+var idx = 0;				// 대상slide idx
+var interval;				// interval 저장변수
+var gap = 2000;				// interval 간격
+var speed = 500;			// animation 속도
+var lastIdx;				// 마지막 .slide의 index
 
 /************* function init ************/
 function createSlide() {
@@ -33,46 +34,64 @@ function createSlide() {
 		html += '</div>';
 		$(html).appendTo($wrap);	
 	});
-	$( $wrapper.find('.slide').eq(0).clone() ).appendTo($wrap);
-	$slide = $wrapper.find('.slide');
+	$wrapper.find('.slide').eq(0).clone().appendTo($wrap);
+	$slide = $wrapper.find('.slide');	// 슬라이드 생성 시점-여기 이후에 $slide를 쓸수있다.
 	$wrap.css('width', ($slide.length * 100)+'%');
 	$slide.css('width', (100/$slide.length)+'%');
 	lastIdx = $slide.length - 1;
+
+	/*************** event init *************/
+	interval = setInterval(onNext, gap);
+	$wrapper.mouseenter(onEnter);
+	$wrapper.mouseleave(onLeave);
+	$btPrev.click(onPrev);
+	$btNext.click(onNext);
+
+	createPager();
 }
 
 function createPager() {
 	slides.forEach(function(v, i) {
 		$('<div class="pager">●</div>').appendTo($pagerWrap).click(onPager);
 	});
-	$pagerWrap.find('.pager').eq(0).addClass('active');
+	$pager = $pagerWrap.find('.pager');
+	$pager.eq(0).addClass('active');
 }
 
 function chgSlide() {
-	$wrap.stop().animate({'left': (-idx * 100) +'%'}, speed, function() {
-		if(idx === lastIdx) {
-			$wrap.css('left', 0);
-			idx = 0;
-		}
-	});
+	$wrap.stop().animate({'left': (-idx * 100) +'%'}, speed);
 }
 
 function chgPager() {
-	
+	$pager.removeClass('active');
+	$pager.eq(idx === lastIdx ? 0 : idx).addClass('active');
 }
 
 /************* event callback ***********/
 function onNext() {
-	idx = (idx === lastIdx) ? 0 : idx + 1;
+	if(idx === lastIdx) { // 초기화
+		$wrap.css('left', 0);
+		idx = 0;
+	}
+	idx++;
 	chgSlide();
 	chgPager();
 }
 
 function onPrev() {
-	
+	if(idx === 0) { // 초기화
+		$wrap.css('left', -lastIdx * 100 + '%');
+		idx = lastIdx;
+	}
+	idx--;
+	chgSlide();
+	chgPager();
 }
 
 function onPager() {
-	
+	idx = $(this).index();
+	chgSlide();
+	chgPager();
 }
 
 function onEnter() {
@@ -83,16 +102,10 @@ function onLeave() {
 	interval = setInterval(onNext, gap);
 }
 
-/*************** event init *************/
-interval = setInterval(onNext, gap);
-$wrapper.mouseenter(onEnter);
-$wrapper.mouseleave(onLeave);
-$btPrev.click(onPrev);
-$btNext.click(onNext);
+
 
 /*************** start init *************/
 createSlide();
-createPager();
 
 
 
